@@ -1,0 +1,183 @@
+{
+  "metadata": {
+    "date": "2023-03-20T19:06:08.248124+00:00",
+    "format": "piisa:pii-collection:v1",
+    "lang": "es",
+    "stage": "detection",
+    "detectors": {
+      "1": {
+        "source": "piisa:pii-extract-plg-presidio",
+        "name": "Presidio wrapper",
+        "version": "0.1.1",
+        "method": "model"
+      },
+      "2": {
+        "source": "piisa:pii_extract_plg_regex",
+        "name": "international phone number",
+        "version": "0.1.2",
+        "method": "regex,context"
+      },
+      "3": {
+        "source": "piisa:pii_extract_plg_regex",
+        "name": "spanish phone number",
+        "version": "0.1.2",
+        "method": "soft-regex,context"
+      },
+      "4": {
+        "source": "piisa:pii_extract_plg_regex",
+        "name": "ip address",
+        "version": "0.1.2",
+        "method": "regex,context"
+      },
+      "5": {
+        "source": "piisa:pii_extract_plg_regex",
+        "name": "regex for EMAIL_ADDRESS",
+        "version": "0.1.2",
+        "method": "regex"
+      },
+      "6": {
+        "source": "piisa:pii_extract_plg_regex",
+        "name": "standard credit card",
+        "version": "0.1.2",
+        "method": "regex,checksum"
+      },
+      "7": {
+        "source": "piisa:pii_extract_plg_regex",
+        "name": "bitcoin address",
+        "version": "0.1.2"
+      }
+    }
+  },
+  "pii_list": [
+    {
+      "type": "PERSON",
+      "lang": "es",
+      "value": "Íñigo Montoya",
+      "chunkid": "1",
+      "process": {
+        "stage": "detection",
+        "score": 0.85
+      },
+      "detector": 1,
+      "docid": "e47a022c-ef3c-4fe7-badd-f461d8456a2f",
+      "start": 9,
+      "end": 22
+    },
+    {
+      "type": "PHONE_NUMBER",
+      "lang": "es",
+      "country": "any",
+      "subtype": "international",
+      "value": "+3498345399914",
+      "chunkid": "1",
+      "process": {
+        "stage": "detection"
+      },
+      "detector": 2,
+      "docid": "e47a022c-ef3c-4fe7-badd-f461d8456a2f",
+      "start": 20,
+      "end": 34
+    },
+    {
+      "type": "IP_ADDRESS",
+      "lang": "es",
+      "country": "any",
+      "value": "10.22.31.44",
+      "chunkid": "1",
+      "process": {
+        "stage": "detection"
+      },
+      "detector": 4,
+      "docid": "e47a022c-ef3c-4fe7-badd-f461d8456a2f",
+      "start": 206,
+      "end": 217
+    },
+    {
+      "type": "PERSON",
+      "lang": "es",
+      "value": "Manuel Gon",
+      "chunkid": "2",
+      "process": {
+        "stage": "detection",
+        "score": 0.85
+      },
+      "detector": 1,
+      "docid": "e47a022c-ef3c-4fe7-badd-f461d8456a2f",
+      "start": 10,
+      "end": 20
+    },
+    {
+      "type": "OTHER",
+      "lang": "es",
+      "subtype": "LOCATION",
+      "value": "Sevilla ab",
+      "chunkid": "2",
+      "process": {
+        "stage": "detection",
+        "score": 0.85
+      },
+      "detector": 1,
+      "docid": "e47a022c-ef3c-4fe7-badd-f461d8456a2f",
+      "start": 15,
+      "end": 25
+    },
+    {
+      "type": "EMAIL_ADDRESS",
+      "lang": "es",
+      "country": "any",
+      "value": "pepe",
+      "chunkid": "2",
+      "process": {
+        "stage": "detection"
+      },
+      "detector": 5,
+      "docid": "e47a022c-ef3c-4fe7-badd-f461d8456a2f",
+      "start": 22,
+      "end": 25
+    },
+    {
+      "type": "BLOCKCHAIN_ADDRESS",
+      "lang": "es",
+      "country": "any",
+      "subtype": "bitcoin",
+      "value": "1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6h",
+      "chunkid": "3",
+      "process": {
+        "stage": "detection"
+      },
+      "detector": 7,
+      "docid": "e47a022c-ef3c-4fe7-badd-f461d8456a2f",
+      "start": 100,
+      "end": 130
+    },
+    {
+      "type": "CREDIT_CARD",
+      "lang": "es",
+      "country": "any",
+      "value": "4273966645",
+      "chunkid": "3",
+      "process": {
+        "stage": "detection"
+      },
+      "detector": 6,
+      "docid": "e47a022c-ef3c-4fe7-badd-f461d8456a2f",
+      "start": 110,
+      "end": 120
+    },
+    {
+      "type": "PERSON",
+      "lang": "es",
+      "country": "any",
+      "subtype": "bitcoin",
+      "value": "Pepe",
+      "chunkid": "3",
+      "process": {
+        "stage": "detection"
+      },
+      "detector": 7,
+      "docid": "e47a022c-ef3c-4fe7-badd-f461d8456a2f",
+      "start": 128,
+      "end": 132
+    }
+  ]
+}

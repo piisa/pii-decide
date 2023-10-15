@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "date": "2023-03-20T19:06:08.248124+00:00",
+    "format": "piisa:pii-collection:v1",
+    "lang": "es",
+    "stage": "detection",
+    "detectors": {
+      "1": {
+        "source": "piisa:pii-extract-plg-presidio",
+        "name": "Presidio wrapper",
+        "version": "0.1.1",
+        "method": "model"
+      },
+      "2": {
+        "source": "piisa:pii_extract_plg_regex",
+        "name": "international phone number",
+        "version": "0.1.2",
+        "method": "regex,context"
+      },
+      "4": {
+        "source": "piisa:pii_extract_plg_regex",
+        "name": "ip address",
+        "version": "0.1.2",
+        "method": "regex,context"
+      }
+    }
+  },
+  "pii_list": [
+    {
+      "type": "PERSON",
+      "lang": "es",
+      "value": "Íñigo Montoya",
+      "chunkid": "1",
+      "process": {
+        "stage": "detection",
+        "score": 0.85
+      },
+      "detector": 1,
+      "docid": "e47a022c-ef3c-4fe7-badd-f461d8456a2f",
+      "start": 9,
+      "end": 22
+    },
+    {
+      "type": "PHONE_NUMBER",
+      "lang": "es",
+      "country": "any",
+      "subtype": "international",
+      "value": "+3498345399914",
+      "chunkid": "1",
+      "process": {
+        "stage": "detection"
+      },
+      "detector": 2,
+      "docid": "e47a022c-ef3c-4fe7-badd-f461d8456a2f",
+      "start": 20,
+      "end": 34
+    },
+    {
+      "type": "IP_ADDRESS",
+      "lang": "es",
+      "country": "any",
+      "value": "10.22.31.44",
+      "chunkid": "1",
+      "process": {
+        "stage": "detection"
+      },
+      "detector": 4,
+      "docid": "e47a022c-ef3c-4fe7-badd-f461d8456a2f",
+      "start": 206,
+      "end": 217
+    }
+  ]
+}
