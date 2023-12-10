@@ -9,8 +9,8 @@ This repository builds a Python package providing evaluation &amp; decision on
 detected PII instances, by means of implemented "deciders", modules that
 decide where a PII Instance is to be kept or it is to be ignored.
 
-Right now it is a (mostly-)dummy package, and it incorporates only one simple
-deciders that takes care of removing overlapping PII Instances by following a
+Right now it is a (mostly) dummy package, and it incorporates only one simple
+decider that takes care of removing overlapping PII Instances by following a
 simple rule (if two instances overlap, it just retains the longest one)
 
 
