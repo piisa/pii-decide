@@ -5,6 +5,7 @@ Create pii-decide as a Python package
 import io
 import sys
 import re
+from pathlib import Path
 
 from setuptools import setup, find_packages
 
@@ -31,13 +32,15 @@ def requirements(filename="requirements.txt"):
         return [line.strip() for line in f if line and line[0] != "#"]
 
 
-def long_description():
+def long_description() -> str:
     """
     Take the README and remove markdown hyperlinks
     """
-    with open("README.md", "rt", encoding="utf-8") as f:
+    readme = Path(__file__).parent / "README.md"
+    with open(readme, "rt", encoding="utf-8") as f:
         desc = f.read()
-        desc = re.sub(r"^\[ ([^\]]+) \]: \s+ \S.*\n", r"", desc, flags=re.X | re.M)
+        desc = re.sub(r"^\[ ! \[ [\w\s]+ \] .+ \n", "", desc, flags=re.X | re.M)
+        desc = re.sub(r"^\[ ([^\]]+) \]: \s+ \S.*\n", "", desc, flags=re.X | re.M)
         return re.sub(r"\[ ([^\]]+) \]", r"\1", desc, flags=re.X)
 
 
