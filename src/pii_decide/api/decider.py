@@ -8,7 +8,7 @@ from pii_data.types.piicollection import PiiChunkIterator
 from pii_data.types.piicollection.collection import TYPE_DET_DICT
 from pii_data.helper.config import load_config
 
-from typing import Dict, List, Iterable
+from typing import Dict, Iterable
 
 from ..deciders import SimpleOverlapDecider
 from .. import defs
@@ -65,6 +65,10 @@ class PiiDecider:
                    doc: SrcDocument = None) -> PiiCollection:
         """
         Perform decision on a PII collection corresponding to a full document
+          :param piic: the collection of PII instances to evaluate
+          :param doc: for future use
+          :return: a collection in which PII instances have been updated with
+            decision fields
         """
         if doc:
             raise UnimplementedException("unimplemented doc processing in decision")
@@ -79,4 +83,7 @@ class PiiDecider:
 
     def __call__(self, piic: PiiCollection,
                  doc: SrcDocument = None) -> PiiCollection:
+        """
+        Alias for decide_doc()
+        """
         return self.decide_doc(piic, doc)
